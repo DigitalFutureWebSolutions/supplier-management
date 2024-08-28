@@ -1,0 +1,67 @@
+# Project Setup Documentation
+
+This documentation outlines the steps required to set up your Laravel project on XAMPP 8.2.12. Follow the steps below to configure the environment, install dependencies, clear cache, and run migrations.
+
+## 1. XAMPP Configuration
+
+Ensure that your XAMPP is installed and running version 8.2.12. This will provide the necessary PHP and MySQL environment for your Laravel application.
+
+### `.env` Configuration
+
+Edit the `.env` file located at the root of your Laravel project with the following configuration details:
+
+```plaintext
+APP_URL=http://localhost/sir_sup_man/public/
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sup_man
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+These settings are essential for connecting your Laravel application to the MySQL database running on XAMPP.
+
+## 2. Install Composer Dependencies
+
+To ensure all necessary dependencies are installed, run the following command in your project root directory:
+
+```bash
+composer install
+```
+
+This command will install all the packages and libraries required by your Laravel application as specified in the `composer.json` file.
+
+## 3. Regenerate Autoload Files
+
+Sometimes, the autoload files may need to be refreshed. Run the following command:
+
+```bash
+composer dump-autoload
+```
+
+This command will regenerate the list of all classes that need to be autoloaded by Composer.
+
+## 4. Clear Application Cache
+
+Clearing the cache is important to remove any stale or outdated configuration data that might be stored from previous runs. Use the following commands:
+
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+```
+
+These commands will clear the configuration cache, application cache, and compiled view files, respectively.
+
+## 5. Run Migrations and Seeders
+
+To set up your database structure, run the following migration command:
+
+```bash
+php artisan migrate
+```
+
+This command will apply all the necessary database migrations to create the tables and structure defined in your Laravel application.
+
+By following these steps, your Laravel application should be up and running with the correct environment, dependencies, and database structure.
